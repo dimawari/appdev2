@@ -1,14 +1,21 @@
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
-const DirectionLayout = () => {
-  const [direction, setDirection] = useState('ltr');
+const JustifyContentBasics = () => {
+  const [justifyContent, setJustifyContent] = useState('flex-start');
 
   return (
     <PreviewLayout
-      label="direction"
-      selectedValue={direction}
-      values={['ltr', 'rtl']}
-      setSelectedValue={setDirection}>
+      label="justifyContent"
+      selectedValue={justifyContent}
+      values={[
+        'flex-start',
+        'flex-end',
+        'center',
+        'space-between',
+        'space-around',
+        'space-evenly',
+      ]}
+      setSelectedValue={setJustifyContent}>
       <View style={[styles.box, {backgroundColor: 'powderblue'}]} />
       <View style={[styles.box, {backgroundColor: 'skyblue'}]} />
       <View style={[styles.box, {backgroundColor: 'steelblue'}]} />
@@ -89,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DirectionLayout;
+export default JustifyContentBasics;
