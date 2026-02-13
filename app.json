@@ -1,7 +1,12 @@
 {
   "expo": {
+<<<<<<< HEAD
     "name": "react-native-flexbox",
     "slug": "react-native-flexbox",
+=======
+    "name": "react-native-getting-started",
+    "slug": "react-native-getting-started",
+>>>>>>> 85a874fb4d8bb528135b935aab8769c3882944c0
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

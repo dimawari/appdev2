@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const AlignItemsLayout = () => {
@@ -24,10 +25,24 @@ const AlignItemsLayout = () => {
     </PreviewLayout>
   );
 };
+=======
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text>Open up App.js to start working on your app!</Text>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+>>>>>>> 85a874fb4d8bb528135b935aab8769c3882944c0
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+<<<<<<< HEAD
     marginTop: 8,
     backgroundColor: 'aliceblue',
     minHeight: 200,
@@ -100,3 +115,10 @@ const PreviewLayout = ({
     <View style={[styles.container, {[label]: selectedValue}]}>{children}</View>
   </View>
 );
+=======
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+>>>>>>> 85a874fb4d8bb528135b935aab8769c3882944c0
