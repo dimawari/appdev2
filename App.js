@@ -1,48 +1,64 @@
-<<<<<<< HEAD
+import {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
-const AlignItemsLayout = () => {
-  const [alignItems, setAlignItems] = useState('stretch');
+const AlignSelfLayout = () => {
+  const [alignSelf, setAlignSelf] = useState('stretch');
 
   return (
     <PreviewLayout
-      label="alignItems"
-      selectedValue={alignItems}
+      label="alignSelf"
+      selectedValue={alignSelf}
       values={['stretch', 'flex-start', 'flex-end', 'center', 'baseline']}
-      setSelectedValue={setAlignItems}>
-      <View style={[styles.box, {backgroundColor: 'powderblue'}]} />
-      <View style={[styles.box, {backgroundColor: 'skyblue'}]} />
+      setSelectedValue={setAlignSelf}>
       <View
         style={[
           styles.box,
           {
-            backgroundColor: 'steelblue',
+            alignSelf,
             width: 'auto',
             minWidth: 50,
+            backgroundColor: 'powderblue',
           },
         ]}
       />
+      <View style={[styles.box, {backgroundColor: 'skyblue'}]} />
+      <View style={[styles.box, {backgroundColor: 'steelblue'}]} />
     </PreviewLayout>
   );
 };
-=======
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+const PreviewLayout = ({
+  label,
+  children,
+  values,
+  selectedValue,
+  setSelectedValue,
+}) => (
+  <View style={{padding: 10, flex: 1}}>
+    <Text style={styles.label}>{label}</Text>
+    <View style={styles.row}>
+      {values.map(value => (
+        <TouchableOpacity
+          key={value}
+          onPress={() => setSelectedValue(value)}
+          style={[styles.button, selectedValue === value && styles.selected]}>
+          <Text
+            style={[
+              styles.buttonLabel,
+              selectedValue === value && styles.selectedLabel,
+            ]}>
+            {value}
+          </Text>
+        </TouchableOpacity>
+      ))}
     </View>
-  );
-}
->>>>>>> 85a874fb4d8bb528135b935aab8769c3882944c0
+    <View style={styles.container}>{children}</View>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-<<<<<<< HEAD
     marginTop: 8,
     backgroundColor: 'aliceblue',
     minHeight: 200,
@@ -85,40 +101,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AlignItemsLayout;
-
-const PreviewLayout = ({
-  label,
-  children,
-  values,
-  selectedValue,
-  setSelectedValue,
-}) => (
-  <View style={{padding: 10, flex: 1}}>
-    <Text style={styles.label}>{label}</Text>
-    <View style={styles.row}>
-      {values.map(value => (
-        <TouchableOpacity
-          key={value}
-          onPress={() => setSelectedValue(value)}
-          style={[styles.button, selectedValue === value && styles.selected]}>
-          <Text
-            style={[
-              styles.buttonLabel,
-              selectedValue === value && styles.selectedLabel,
-            ]}>
-            {value}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-    <View style={[styles.container, {[label]: selectedValue}]}>{children}</View>
-  </View>
-);
-=======
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
->>>>>>> 85a874fb4d8bb528135b935aab8769c3882944c0
+export default AlignSelfLayout;
