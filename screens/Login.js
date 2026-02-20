@@ -13,7 +13,6 @@ export default function Login() {
 
       <Text style={styles.title}>Login</Text>
 
-      {/* Email Field */}
       <View style={styles.inputContainer}>
         <Ionicons name="mail-outline" size={20} color="gray" style={styles.icon} />
         <TextInput
@@ -22,7 +21,6 @@ export default function Login() {
         />
       </View>
 
-      {/* Password Field */}
       <View style={styles.inputContainer}>
         <Ionicons name="lock-closed-outline" size={20} color="gray" style={styles.icon} />
         <TextInput
@@ -32,7 +30,6 @@ export default function Login() {
         />
       </View>
 
-      {/* Login Button */}
       <TouchableOpacity style={styles.button}>
         <Ionicons name="log-in-outline" size={20} color="#fff" />
         <Text style={styles.buttonText}> Login</Text>
