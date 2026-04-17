@@ -1,11 +1,23 @@
-import React from 'react';
-import { View } from 'react-native';
-import TodoScreen from './screens/Todo';
+import { createStaticNavigation } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Text, View } from "react-native";
 
-export default function App() {
+function HomeScreen() {
   return (
-    <View style={{ flex: 1 }}>
-      <TodoScreen />
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text>Home Screen</Text>
     </View>
   );
+}
+
+const RootStack = createNativeStackNavigator({
+  screens: {
+    Home: HomeScreen,
+  },
+});
+
+const Navigation = createStaticNavigation(RootStack);
+
+export default function App() {
+  return <Navigation />;
 }
