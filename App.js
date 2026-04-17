@@ -32,23 +32,21 @@ function DetailsScreen() {
   const navigation = useNavigation();
   const route = useRoute();
 
-  const { itemId, otherParam } = route.params || {};
+  const { itemId } = route.params || {};
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Details Screen</Text>
-
       <Text>itemId: {JSON.stringify(itemId)}</Text>
-      <Text>otherParam: {JSON.stringify(otherParam)}</Text>
 
       <Button
         onPress={() =>
-          navigation.push("Details", {
+          navigation.setParams({
             itemId: Math.floor(Math.random() * 100),
           })
         }
       >
-        Go to Details... again
+        Update itemId
       </Button>
     </View>
   );
