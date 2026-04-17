@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "react-native-navigation",
   "main": "expo-router/entry",
   "version": "1.0.0",
@@ -44,6 +45,27 @@
     "eslint": "^9.25.0",
     "eslint-config-expo": "~10.0.0",
     "typescript": "~5.9.2"
+=======
+<<<<<<< HEAD
+  "name": "react-native-flexbox",
+=======
+  "name": "react-native-getting-started",
+>>>>>>> 85a874fb4d8bb528135b935aab8769c3882944c0
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.3",
+    "expo": "~54.0.33",
+    "expo-status-bar": "~3.0.9",
+    "react": "19.1.0",
+    "react-native": "0.81.5"
+>>>>>>> c6edc3428cc60e24d6e7ec0de4a7b7d6b091923e
   },
   "private": true
 }
