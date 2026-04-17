@@ -7,22 +7,39 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Text, View } from "react-native";
 
-function HomeScreen() {
+function HomeScreen({ route }) {
   const navigation = useNavigation();
+
+  React.useEffect(() => {
+    if (route.params?.post) {
+      alert("New post: " + route.params?.post);
+    }
+  }, [route.params?.post]);
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
+      <Button onPress={() => navigation.navigate("CreatePost")}>
+        Create post
+      </Button>
 
+      <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
+    </View>
+  );
+}
+
+function CreatePostScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Button
         onPress={() => {
-          navigation.navigate("Details", {
-            itemId: 86,
-            otherParam: "anything you want here",
+          navigation.navigate({
+            name: "Home",
+            params: { post: "Hello from CreatePost!" },
+            merge: true,
           });
         }}
       >
-        Go to Details
+        Done (send back to Home)
       </Button>
     </View>
   );
@@ -55,10 +72,8 @@ function DetailsScreen() {
 const RootStack = createNativeStackNavigator({
   screens: {
     Home: HomeScreen,
-    Details: {
-      screen: DetailsScreen,
-      initialParams: { itemId: 42 },
-    },
+    Details: DetailsScreen,
+    CreatePost: CreatePostScreen,
   },
 });
 
