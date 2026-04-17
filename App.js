@@ -5,6 +5,7 @@ import {
   useRoute,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import * as React from "react";
 import { Text, View } from "react-native";
 
 function HomeScreen({ route }) {
