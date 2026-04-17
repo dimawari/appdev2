@@ -6,6 +6,12 @@ function HomeScreen() {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Home Screen</Text>
+
+      <Link to={{ screen: "Details" }}>Go to Details (Link)</Link>
+
+      <Button onPress={() => navigationRef.navigate("Details")}>
+        Go to Details (Button)
+      </Button>
     </View>
   );
 }
@@ -19,17 +25,17 @@ function DetailsScreen() {
 }
 
 const RootStack = createNativeStackNavigator({
-  initialRouteName: 'Home',
+  initialRouteName: "Home",
 
   screenOptions: {
-    headerStyle: { backgroundColor: 'tomato' },
+    headerStyle: { backgroundColor: "tomato" },
   },
 
   screens: {
     Home: {
       screen: HomeScreen,
       options: {
-        title: 'Overview',
+        title: "Overview",
       },
     },
     Details: DetailsScreen,
