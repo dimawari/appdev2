@@ -2,6 +2,7 @@ import { Button } from "@react-navigation/elements";
 import {
   createStaticNavigation,
   useNavigation,
+  useRoute,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Text, View } from "react-native";
@@ -13,7 +14,14 @@ function HomeScreen() {
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Home Screen</Text>
 
-      <Button onPress={() => navigation.navigate("Details")}>
+      <Button
+        onPress={() => {
+          navigation.navigate("Details", {
+            itemId: 86,
+            otherParam: "anything you want here",
+          });
+        }}
+      >
         Go to Details
       </Button>
     </View>
@@ -22,22 +30,31 @@ function HomeScreen() {
 
 function DetailsScreen() {
   const navigation = useNavigation();
+  const route = useRoute();
+
+  const { itemId, otherParam } = route.params || {};
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Details Screen</Text>
 
-      <Button onPress={() => navigation.push("Details")}>
+      <Text>itemId: {JSON.stringify(itemId)}</Text>
+      <Text>otherParam: {JSON.stringify(otherParam)}</Text>
+
+      <Button
+        onPress={() =>
+          navigation.push("Details", {
+            itemId: Math.floor(Math.random() * 100),
+          })
+        }
+      >
         Go to Details... again
       </Button>
-
-      <Button onPress={() => navigation.goBack()}>Go back</Button>
     </View>
   );
 }
 
 const RootStack = createNativeStackNavigator({
-  initialRouteName: "Home",
   screens: {
     Home: HomeScreen,
     Details: DetailsScreen,
