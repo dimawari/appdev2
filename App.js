@@ -1,8 +1,6 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { createStaticNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Text, View } from "react-native";
-
-const Stack = createNativeStackNavigator();
 
 function HomeScreen() {
   return (
@@ -20,13 +18,16 @@ function DetailsScreen() {
   );
 }
 
+const RootStack = createNativeStackNavigator({
+  initialRouteName: "Home",
+  screens: {
+    Home: HomeScreen,
+    Details: DetailsScreen,
+  },
+});
+
+const Navigation = createStaticNavigation(RootStack);
+
 export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+  return <Navigation />;
 }
