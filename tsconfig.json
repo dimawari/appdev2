@@ -3,4 +3,16 @@
   "compilerOptions": {
     "strict": true
   }
+    "strict": true,
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
+c601fa6a6549d53ae47681908a48875d8defac36
 }

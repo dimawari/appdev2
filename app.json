@@ -1,5 +1,6 @@
 {
   "expo": {
+<<<<<<< HEAD
     "name": "react-native-todo-convex",
     "slug": "react-native-todo-convex",
     "version": "1.0.0",
@@ -9,6 +10,16 @@
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
+=======
+    "name": "react-native-navigation",
+    "slug": "react-native-navigation",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+>>>>>>> c601fa6a6549d53ae47681908a48875d8defac36
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,9 +30,13 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+<<<<<<< HEAD
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
+=======
+      }
+>>>>>>> c601fa6a6549d53ae47681908a48875d8defac36
     },
     "web": {
       "favicon": "./assets/favicon.png"
