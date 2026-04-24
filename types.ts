@@ -3,13 +3,30 @@ import {
   NavigationContainer,
   useNavigation,
   useRoute,
+  RouteProp,
 } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationProp,
+} from "@react-navigation/native-stack";
 import * as React from "react";
 import { Text, View } from "react-native";
 
-function HomeScreen({ route }) {
-  const navigation = useNavigation();
+// 👇 import your types
+import { RootStackParamList } from "./types";
+
+// 👇 type the stack
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+// -------- Home Screen --------
+type HomeRouteProp = RouteProp<RootStackParamList, "Home">;
+type HomeNavProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "Home"
+>;
+
+function HomeScreen({ route }: { route: HomeRouteProp }) {
+  const navigation = useNavigation<HomeNavProp>();
 
   React.useEffect(() => {
     if (route.params?.post) {
@@ -30,7 +47,15 @@ function HomeScreen({ route }) {
   );
 }
 
-function CreatePostScreen({ navigation }) {
+// -------- Create Post --------
+type CreatePostNavProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "CreatePost"
+>;
+
+function CreatePostScreen() {
+  const navigation = useNavigation<CreatePostNavProp>();
+
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Button
@@ -46,9 +71,16 @@ function CreatePostScreen({ navigation }) {
   );
 }
 
+// -------- Details --------
+type DetailsRouteProp = RouteProp<RootStackParamList, "Details">;
+type DetailsNavProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "Details"
+>;
+
 function DetailsScreen() {
-  const navigation = useNavigation();
-  const route = useRoute();
+  const navigation = useNavigation<DetailsNavProp>();
+  const route = useRoute<DetailsRouteProp>();
 
   const { itemId } = route.params || {};
 
@@ -70,8 +102,7 @@ function DetailsScreen() {
   );
 }
 
-const Stack = createNativeStackNavigator();
-
+// -------- App Root --------
 export default function App() {
   return (
     <NavigationContainer>
